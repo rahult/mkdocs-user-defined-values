@@ -40,7 +40,7 @@ class UserDefinedValues(BasePlugin):
         '''
 
         for keyword in self.config['keywords']:
-            javascript_variable_name = keyword.lower()
+            javascript_variable_name = keyword.lower().replace("-", "_")
             input_boxes += f'''
                 <label class="user-defined-values" for="{keyword}">{keyword}</label>
                 <input class="user-defined-values" type="text" id="{keyword}" />
@@ -61,5 +61,4 @@ class UserDefinedValues(BasePlugin):
 
         output_content = output_content.replace(self.config['input-placeholder'], input_boxes)
 
-        print(output_content)
         return output_content
