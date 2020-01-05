@@ -1,0 +1,3 @@
+[mkdocs.plugins]
+user-defined-values = plugin.plugin:UserDefinedValues
+

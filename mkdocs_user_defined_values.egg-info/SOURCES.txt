@@ -1,0 +1,8 @@
+README.md
+setup.py
+mkdocs_user_defined_values.egg-info/PKG-INFO
+mkdocs_user_defined_values.egg-info/SOURCES.txt
+mkdocs_user_defined_values.egg-info/dependency_links.txt
+mkdocs_user_defined_values.egg-info/entry_points.txt
+mkdocs_user_defined_values.egg-info/requires.txt
+mkdocs_user_defined_values.egg-info/top_level.txt

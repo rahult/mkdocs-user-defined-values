@@ -1,0 +1,23 @@
+Metadata-Version: 2.1
+Name: mkdocs-user-defined-values
+Version: 0.0.1
+Summary: Enable user defined values for MkDocs
+Home-page: https://github.com/rahult/mkdocs-user-defined-values
+Author: Rahul Trikha
+License: UNKNOWN
+Project-URL: Bug Reports, https://github.com/rahult/mkdocs-user-defined-values/issues
+Project-URL: Source, https://github.com/rahult/mkdocs-user-defined-values/
+Description: UNKNOWN
+Keywords: mkdocs plugin user defined value
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Requires-Python: >=3, <4
+Description-Content-Type: text/markdown
+Provides-Extra: dev
