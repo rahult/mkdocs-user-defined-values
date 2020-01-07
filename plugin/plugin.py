@@ -19,6 +19,7 @@ class UserDefinedValues(BasePlugin):
 
         # Wrap keyword with span and data tag
         for keyword in self.config['keywords']:
+
             output_content = output_content.replace(keyword, f'<span {data_tag}="{keyword}">{keyword}</span>')
 
         # Embed binding javascript
@@ -46,8 +47,10 @@ class UserDefinedValues(BasePlugin):
                 <input class="user-defined-values" type="text" id="{keyword}" />
                 <script>
                     const {javascript_variable_name} = document.getElementById('{keyword}');
+                    {javascript_variable_name}.value = window.localStorage.getItem('{keyword}');
                     {javascript_variable_name}.oninput = function(e) {{
                         const value = e.target.value;
+                        window.localStorage.setItem('{keyword}', value);
                         document.querySelectorAll('[{data_tag}="{keyword}"]').forEach(function(element, _) {{
                             if (value == '') {{
                                 element.innerHTML = '{keyword}';
