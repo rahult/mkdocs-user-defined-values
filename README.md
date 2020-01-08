@@ -9,6 +9,7 @@ Install the plugin using pip:
 `pip install mkdocs-user-defined-values`
 
 Activate the plugin in `mkdocs.yml`:
+
 ```yaml
 plugins:
   - search
@@ -29,8 +30,8 @@ More information about plugins in the [MkDocs documentation][mkdocs-plugins].
 
 ## Usage
 
-- Provide a list of `keywords` you want a user to provide dynamically.
-- Place `{{{user-defined-values}}}` in your page or template where you want to generate the form for user to provide dynamic values.
+* Provide a list of `keywords` you want a user to provide dynamically.
+* Place `{{{user-defined-values}}}` in your page or template where you want to generate the form for user to provide dynamic values.
 
 ## See Also
 
