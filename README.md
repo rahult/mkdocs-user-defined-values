@@ -25,12 +25,12 @@ More information about plugins in the [MkDocs documentation][mkdocs-plugins].
 ## Config
 
 * `keywords` - This is a list of keywords which you want to allow a user to modify.
-* `input-placeholder` - This is a placeholder where you want the plugin to generate the form for user to provide dynamic values for each keyword. Default value is `{{{user-defined_values}}}`.
+* `input-placeholder` - This is a placeholder where you want the plugin to generate the form for user to provide dynamic values for each keyword. Default value is `{{{user-defined-values}}}`.
 
 ## Usage
 
 - Provide a list of `keywords` you want a user to provide dynamically.
-- Place `{{{user-defined_values}}}` in your page or template where you want to generate the form for user to provide dynamic values.
+- Place `{{{user-defined-values}}}` in your page or template where you want to generate the form for user to provide dynamic values.
 
 ## See Also
 

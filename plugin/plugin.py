@@ -5,20 +5,24 @@ from mkdocs.plugins import BasePlugin
 class UserDefinedValues(BasePlugin):
 
     config_scheme = (
-        ('keywords', config_options.Type(list)),
-        ('input-placeholder', config_options.Type(mkdocs_utils.string_types, default='{{{user-defined_values}}}'))
+        ('keywords', config_options.Type(dict)),
+        ('input-placeholder', config_options.Type(mkdocs_utils.string_types, default='{{{user-defined-values}}}'))
     )
 
-    def __init__(self):
-        self.enabled = True
-        self.total_time = 0
+    def on_config(self, config, **kwards):
+        self.keywords = {}
+
+        # Sanatise all keywords to be Dictionary. By default MkDocs assigns None as a value for Keys if they are empty
+        for key, value in self.config['keywords'].items():
+            self.keywords[key] = value if isinstance(value, dict) else {}
+
+        return config
 
     def on_post_page(self, output_content, page, config):
         data_tag = 'data-bind-user-defined-values'
-        input_boxes = ''
 
         # Wrap keyword with span and data tag
-        for keyword in self.config['keywords']:
+        for keyword in self.keywords:
             output_content = output_content.replace(keyword, f'<span {data_tag}="{keyword}">{keyword}</span>')
 
         # Embed binding javascript
@@ -39,15 +43,24 @@ class UserDefinedValues(BasePlugin):
         </style>
         '''
 
-        for keyword in self.config['keywords']:
+        for keyword, values in self.keywords.items():
             javascript_variable_name = keyword.lower().replace("-", "_")
+            label = keyword
+            placeholder = ''
+
+            if values:
+                label = values.get('label', label)
+                placeholder = values.get('placeholder', placeholder)
+
             input_boxes += f'''
-                <label class="user-defined-values" for="{keyword}">{keyword}</label>
-                <input class="user-defined-values" type="text" id="{keyword}" />
+                <label class="user-defined-values" for="{keyword}">{label}</label>
+                <input class="user-defined-values" type="text" placeholder="{placeholder}" id="{keyword}" />
                 <script>
                     const {javascript_variable_name} = document.getElementById('{keyword}');
+                    {javascript_variable_name}.value = window.localStorage.getItem('{keyword}');
                     {javascript_variable_name}.oninput = function(e) {{
                         const value = e.target.value;
+                        window.localStorage.setItem('{keyword}', value);
                         document.querySelectorAll('[{data_tag}="{keyword}"]').forEach(function(element, _) {{
                             if (value == '') {{
                                 element.innerHTML = '{keyword}';
