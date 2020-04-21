@@ -10,7 +10,7 @@ with open(path.join(here, "README.md"), encoding="utf-8") as f:
 
 setup(
     name="mkdocs-user-defined-values",
-    version="0.0.4",
+    version="0.0.5",
     description="Enable user defined values for MkDocs",
     long_description=long_description,
     long_description_content_type="text/markdown",
@@ -29,9 +29,7 @@ setup(
     keywords="mkdocs plugin user defined value",
     packages=find_packages(exclude=["contrib", "docs", "tests"]),
     python_requires=">=3, <4",
-    install_requires=[
-        "mkdocs>=1.0.4"
-    ],
+    install_requires=["mkdocs>=1.0.4"],
     extras_require={"dev": []},
     dependency_links=[],
     entry_points={
