@@ -4,15 +4,9 @@ url = "https://pypi.org/simple"
 verify_ssl = true
 
 [dev-packages]
-pipenv-setup = "*"
-pylint = "*"
-black = "*"
 
 [packages]
-mkdocs = "*"
+mkdocs-user-defined-values = {editable = true,path = ".."}
 
 [requires]
 python_version = "3.8"
-
-[pipenv]
-allow_prereleases = true

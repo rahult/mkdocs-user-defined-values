@@ -6,7 +6,7 @@ class UserDefinedValues(BasePlugin):
 
     config_scheme = (
         ('keywords', config_options.Type(dict)),
-        ('input-placeholder', config_options.Type(mkdocs_utils.string_types, default='{{{user-defined-values}}}'))
+        ('input-placeholder', config_options.Type(str, default='{{{user-defined-values}}}'))
     )
 
     def on_config(self, config, **kwards):
