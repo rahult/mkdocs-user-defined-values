@@ -10,7 +10,7 @@ with open(path.join(here, "README.md"), encoding="utf-8") as f:
 
 setup(
     name="mkdocs-user-defined-values",
-    version="0.0.3",
+    version="0.0.4",
     description="Enable user defined values for MkDocs",
     long_description=long_description,
     long_description_content_type="text/markdown",
