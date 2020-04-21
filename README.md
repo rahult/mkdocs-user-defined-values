@@ -42,6 +42,18 @@ cd demo
 pipenv run mkdocs serve
 ```
 
+## Automated Test
+
+```
+./auto/test
+```
+
+## Sync Pipfile -> setup.py
+
+```
+pipenv-setup sync -p -d
+```
+
 ## Releasing a new version
 
 - Bump version in [setup.py](/setup.py#L13)
