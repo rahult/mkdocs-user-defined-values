@@ -1,1 +1,3 @@
 mkdocs_user_defined_values.egg-info
+.pytest_cache
+__pycache__
