@@ -1,6 +1,6 @@
 site_name: "Demo Test"
 use_directory_urls: false
-site_dir: output
+site_dir: expected
 
 plugins:
   - search
