@@ -1,0 +1,46 @@
+name: Test
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Setup Python
+        uses: actions/setup-python@v1
+        with:
+          python-version: 3.8
+
+      - name: Setup Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: "10.x"
+
+      - name: Install dependencies with pipenv
+        run: |
+          pip install pipenv
+          pipenv install --dev
+
+      - name: Install bats framework
+        run: npm install -g bats
+
+      - name: Black formatter
+        run: pipenv run black --check .
+
+      - name: PyTests
+        run: pipenv run pytest
+
+      - name: Integration tests
+        run: |
+          cd tests/integration/demo
+          pipenv install --dev
+          cd ../../..
+          bats tests/integration/tests.bats

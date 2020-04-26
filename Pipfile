@@ -7,9 +7,10 @@ verify_ssl = true
 pipenv-setup = "*"
 pylint = "*"
 black = "*"
+pytest = "*"
 
 [packages]
-mkdocs = "*"
+mkdocs = "==1.*"
 
 [requires]
 python_version = "3.8"

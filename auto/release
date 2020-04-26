@@ -1,0 +1,6 @@
+#!/bin/bash
+
+pipenv run pipenv-setup sync -p -d
+pipenv run python setup.py sdist bdist_wheel
+pipenv run twine check dist/*
+pipenv run twine upload dist/* --repository mkdocs-user-defined-values

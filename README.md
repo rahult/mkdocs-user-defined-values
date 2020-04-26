@@ -42,10 +42,23 @@ cd demo
 pipenv run mkdocs serve
 ```
 
+## Automated Test
+
+```
+./auto/test
+```
+
+## Sync Pipfile.lock -> setup.py
+
+```
+pipenv-setup sync -p -d
+```
+
 ## Releasing a new version
 
 - Bump version in [setup.py](/setup.py#L13)
-- Create distribution `pipenv run python setup.py bdist_wheel`
+- Sync [Pipfile.lock](/Pipfile.lock) with [setup.py](/setup.py) `pipenv run pipenv-setup sync -p -d`
+- Create distribution `pipenv run python setup.py sdist bdist_wheel`
 - Check distribution `pipenv run twine check dist/*`
 - Upload distribution `pipenv run twine upload dist/* --repository mkdocs-user-defined-values`
 
