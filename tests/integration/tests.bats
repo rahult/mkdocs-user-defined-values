@@ -31,10 +31,10 @@ assertSuccessMkdocs() {
   [ "$status" -eq 0 ]
 }
 
-assertFailedMkdocs() {
-  run pipenv run mkdocs $@
+assertSuccessFileCompare() {
+  run cmp $@
   debugger
-  [ "$status" -ne 0 ]
+  [ "$status" -eq 0 ]
 }
 
 ##
@@ -53,4 +53,16 @@ teardown() {
 @test "builds a mkdocs site with minimal configuration" {
   cd ${fixturesDir}/demo
   assertSuccessMkdocs build --clean -d output
+}
+
+@test "generate a page which uses UserDefinedValues plugin" {
+  cd ${fixturesDir}/demo
+  assertSuccessMkdocs build --clean -d output
+  assertSuccessFileCompare "output/page_with_plugin.html" "expected/page_with_plugin.html"
+}
+
+@test "generate a page which does not uses UserDefinedValues plugin" {
+  cd ${fixturesDir}/demo
+  assertSuccessMkdocs build --clean -d output
+  assertSuccessFileCompare "output/page_without_plugin.html" "expected/page_without_plugin.html"
 }
