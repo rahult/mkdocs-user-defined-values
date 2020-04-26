@@ -29,7 +29,7 @@ setup(
     keywords="mkdocs plugin user defined value",
     packages=find_packages(exclude=["contrib", "docs", "tests"]),
     python_requires=">=3, <4",
-    install_requires=["mkdocs"],
+    install_requires=["mkdocs==1.*"],
     extras_require={"dev": ["pipenv-setup", "pylint", "black", "pytest",]},
     dependency_links=[],
     entry_points={
