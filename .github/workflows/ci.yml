@@ -19,10 +19,28 @@ jobs:
         with:
           python-version: 3.8
 
+      - name: Setup Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: "10.x"
+
       - name: Install dependencies with pipenv
         run: |
           pip install pipenv
           pipenv install --dev
 
-      - run: pipenv run black --check .
-      - run: pipenv run pytest
+      - name: Install bats framework
+        run: npm install -g bats
+
+      - name: Black formatter
+        run: pipenv run black --check .
+
+      - name: PyTests
+        run: pipenv run pytest
+
+      - name: Integration tests
+        run: |
+          cd tests/integration/demo
+          pipenv install --dev
+          cd ../../..
+          bats tests/integration/tests.bats

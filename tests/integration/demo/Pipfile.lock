@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "447c749b305c33f3720ee0198123029e8ee1e1aa29b9d052a66da3c01d57c487"
+            "sha256": "7c5b6a58447a98ec8ab4b3dab26796d66a3ee858bce52a80fd883c851baf4218"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -114,7 +114,7 @@
         },
         "mkdocs-user-defined-values": {
             "editable": true,
-            "path": ".."
+            "path": "../../.."
         },
         "nltk": {
             "hashes": [

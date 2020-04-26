@@ -7,7 +7,9 @@ from mkdocs import config
 def load_config():
     """ Helper to build a simple config for testing. """
     # Point to an actual dir to avoid a 'does not exist' error on validation.
-    path_base = os.path.join(os.path.abspath(os.path.dirname(__file__)), "..", "demo")
+    path_base = os.path.join(
+        os.path.abspath(os.path.dirname(__file__)), "integration", "demo"
+    )
     cfg = {}
     cfg["site_name"] = "Example"
     cfg["config_file_path"] = os.path.join(path_base, "mkdocs.yml")
